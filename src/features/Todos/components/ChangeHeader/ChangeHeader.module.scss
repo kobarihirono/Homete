@@ -1,0 +1,25 @@
+// ChangeHeader module
+
+.changeHeader {
+  display: flex;
+  background-color: $white;
+  border-bottom: 5px solid $light-orange;
+
+  .changeHeader__tab {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+
+  .changeHeader__tabTitle {
+    font-size: 14px;
+    padding: 12px;
+    text-align: center;
+  }
+}

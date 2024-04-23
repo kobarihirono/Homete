@@ -1,0 +1,36 @@
+node_modules
+.next
+.vscode
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+#  prettier
+.prettierrc.js
+.prettierqignore
+
+# eslint
+.eslintrc.js
+.stylelintrc.js
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+*storybook.log
+
+# storybook
+.storybook
+.stories

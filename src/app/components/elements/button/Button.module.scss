@@ -1,0 +1,41 @@
+// Button.module.scss
+
+.button {
+  font-weight: bold;
+  padding: 12px 32px;
+  font-size: 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease;
+
+  &.primary {
+    background-color: $orange;
+    color: $white;
+
+    &:hover {
+      background-color: $main-bg;
+    }
+  }
+
+  &.secondary {
+    background-color: $main-bg;
+    color: $white;
+  }
+
+  &.back {
+    background-color: $gray;
+    color: $main-font;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+
+  &.disabled {
+    background-color: $disabled;
+    color: $white;
+    cursor: not-allowed;
+  }
+}

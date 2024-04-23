@@ -1,0 +1,67 @@
+// page.module.scss
+
+.forget {
+  background-color: $white;
+  width: 94%;
+  max-width: 500px;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: auto;
+  border: 1px solid $gray;
+
+  .forget__icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .forget__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .forget__text {
+    font-size: 0.9rem;
+    color: $footer-font;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  .forget__input {
+    width: 64%;
+    margin: auto;
+
+    .forget__inputTitle {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .forget__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .forget__link {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: $main-bg;
+  }
+}
+
+.forget__wrap {
+  margin: 80px 0;
+}
+
+.errors {
+  color: $error;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}

@@ -1,0 +1,31 @@
+// TodoList.module.scss
+
+.todoList {
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  margin: auto;
+  border-bottom: 1px solid $gray;
+
+  .todoList__name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.icons {
+  display: flex;
+
+  .icons__edit,
+  .icons__delete {
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}
+
+.todoList__wrap {
+  margin: 12px 0;
+}

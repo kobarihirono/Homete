@@ -1,0 +1,51 @@
+// page.module.scss
+
+.register {
+  background-color: $white;
+  width: 94%;
+  max-width: 500px;
+  padding: 2rem 4rem;
+  border-radius: 8px;
+  margin: auto;
+  border: 1px solid $gray;
+
+  .register__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .register__input {
+    margin-bottom: 1.5rem;
+
+    .register__inputTitle {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .register__button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .register__link {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: $main-bg;
+  }
+}
+
+.register__wrap {
+  margin: 80px 0;
+}
+
+.errors {
+  color: $error;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
