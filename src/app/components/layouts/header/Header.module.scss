@@ -1,4 +1,7 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   padding: 20px;
   background-color: $main-bg;
@@ -6,6 +9,13 @@
   .header__title {
     font-size: 28px;
     font-weight: bold;
+    color: $white;
+  }
+
+  .header__icon {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
     color: $white;
   }
 }

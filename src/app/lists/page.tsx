@@ -2,6 +2,7 @@
 
 'use client';
 
+import Image from "next/image";
 import React, { useState } from 'react';
 import AddIcon from '../components/elements/addIcon/AddIcon';
 import ListAddModal from '../components/elements/modal/ListAddModal';
@@ -23,15 +24,28 @@ const Lists = () => {
     return <div>Loading...</div>;
   }
 
+  const listContent = taskLists.length > 0 ? (
+    <TodoList
+      key={taskLists[0].id}
+      listName={taskLists[0].name}
+      tasks={taskLists[0].tasks || []}
+    />
+  ) : (
+    <div className={styles.noList}>
+      <p className={styles.noList__text}>現在、リストはありません</p>
+      <Image
+        className={styles.noList__img}
+        src="/images/no-list.png"
+        alt="bookshelf"
+        width={300}
+        height={300}
+      />
+    </div>
+  );
+
   return (
     <div>
-      {taskLists.map((list) => (
-        <TodoList
-          key={list.id}
-          listName={list.name}
-          tasks={list.tasks || []}
-        />
-      ))}
+      {listContent}
       <div
         onClick={handleOpenModal}
         className={styles.iconContainer}
@@ -41,6 +55,7 @@ const Lists = () => {
       <ListAddModal
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
+        userId={currentUser?.uid || ''}
       />
     </div>
   );

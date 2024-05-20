@@ -6,8 +6,9 @@ import styles from './Input.module.scss';
 interface InputProps {
   type?: string;
   placeholder?: string;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
+  value?: string;
 }
 
 // React.forwardRefを使用して書き換え

@@ -19,7 +19,7 @@ const Login = () => {
     const result = await signInWithEmail({ email, password });
 
     if (result.isSuccess) {
-      router.push('/');
+      router.push('/lists');
     } else {
       alert(result.message);
     }

@@ -5,18 +5,47 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px;
+  padding: 18px;
   margin: auto;
   border-bottom: 1px solid $gray;
+  cursor: pointer;
 
   .todoList__name {
     font-size: 18px;
     font-weight: bold;
   }
+
+  .todoList__Item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .todoList__editInput {
+    width: 82%;
+    padding: 14px;
+    border: 1px solid $gray;
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.task {
+  .task__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
 }
 
 .icons {
   display: flex;
+  gap: 10px;
+  align-items: center;
 
   .icons__edit,
   .icons__delete {
