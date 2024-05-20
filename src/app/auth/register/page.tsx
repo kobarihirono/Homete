@@ -26,7 +26,7 @@ const Register = () => {
     const result = await signUpWithEmail({ email, password, username });
 
     if (result.isSuccess) {
-      router.push('/');
+      router.push('/lists');
     } else {
       alert(result.message);
     }
