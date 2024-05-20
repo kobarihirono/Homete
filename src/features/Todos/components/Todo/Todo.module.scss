@@ -3,10 +3,15 @@
 .todo {
   width: 92%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 14px;
   margin: auto;
   border-bottom: 1px solid $gray;
+
+  .todo__inner {
+    width: 92%;
+  }
 
   .todo__checkbox {
     pointer-events: auto;
@@ -33,4 +38,20 @@
 
 .todo__wrap {
   margin: 12px 0;
+}
+
+.todo__editInput {
+  width: 82%;
+  padding: 14px;
+  border: 1px solid $gray;
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: $gray;
 }

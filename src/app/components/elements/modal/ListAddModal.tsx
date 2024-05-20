@@ -23,6 +23,7 @@ const ListAddModal: FC<ListAddModalProps> = ({ isOpen, onRequestClose }) => {
     event.preventDefault();
     if (currentUser) {
       await addList(listName, currentUser.uid);
+      setListName('');
     } else {
       console.error('ユーザーが見つかりません');
     }
