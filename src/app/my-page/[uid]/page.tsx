@@ -57,8 +57,8 @@ const UserPage = () => {
     if (currentUser && currentUser.uid) {
       const userRef = doc(db, 'users', currentUser.uid);
       await updateDoc(userRef, { [name]: value });
-      setUser(prev => prev ? { ...prev, [name]: value } : prev);
-      setIsEditing(prev => ({ ...prev, [name]: false }));
+      setUser((prev) => (prev ? { ...prev, [name]: value } : prev));
+      setIsEditing((prev) => ({ ...prev, [name]: false }));
     }
   };
 
@@ -70,10 +70,10 @@ const UserPage = () => {
   };
 
   const handleClickOutside = (e: MouseEvent) => {
-    Object.keys(selectRefs).forEach(field => {
+    Object.keys(selectRefs).forEach((field) => {
       const ref = selectRefs[field as keyof typeof selectRefs].current;
       if (ref && !ref.contains(e.target as Node)) {
-        setIsEditing(prev => ({ ...prev, [field]: false }));
+        setIsEditing((prev) => ({ ...prev, [field]: false }));
       }
     });
   };
@@ -115,14 +115,14 @@ const UserPage = () => {
                 {isEditing.ai_type ? (
                   <select
                     ref={selectRefs.ai_type}
-                    name="ai_type"
+                    name='ai_type'
                     value={user.ai_type}
                     onChange={handleSelectChange}
                   >
-                    <option value="猫">猫</option>
-                    <option value="犬">犬</option>
-                    <option value="お姉さん">お姉さん</option>
-                    <option value="お兄さん">お兄さん</option>
+                    <option value='猫'>猫</option>
+                    <option value='犬'>犬</option>
+                    <option value='お姉さん'>お姉さん</option>
+                    <option value='お兄さん'>お兄さん</option>
                   </select>
                 ) : (
                   <>
@@ -141,14 +141,14 @@ const UserPage = () => {
                 {isEditing.ai_character ? (
                   <select
                     ref={selectRefs.ai_character}
-                    name="ai_character"
+                    name='ai_character'
                     value={user.ai_character}
                     onChange={handleSelectChange}
                   >
-                    <option value="優しい">優しい</option>
-                    <option value="わんぱく">わんぱく</option>
-                    <option value="紳士">紳士</option>
-                    <option value="知的">知的</option>
+                    <option value='優しい'>優しい</option>
+                    <option value='わんぱく'>わんぱく</option>
+                    <option value='紳士'>紳士</option>
+                    <option value='知的'>知的</option>
                   </select>
                 ) : (
                   <>
@@ -167,13 +167,13 @@ const UserPage = () => {
                 {isEditing.color ? (
                   <select
                     ref={selectRefs.color}
-                    name="color"
+                    name='color'
                     value={user.color}
                     onChange={handleSelectChange}
                   >
-                    <option value="Orange">Orange</option>
-                    <option value="Blue">Blue</option>
-                    <option value="Green">Green</option>
+                    <option value='Orange'>Orange</option>
+                    <option value='Blue'>Blue</option>
+                    <option value='Green'>Green</option>
                   </select>
                 ) : (
                   <>

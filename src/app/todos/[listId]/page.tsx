@@ -8,6 +8,7 @@ import TaskAddModal from '../../components/elements/modal/TaskAddModal';
 import styles from './Todos.module.scss';
 import ChangeHeader from '@/features/Todos/components/ChangeHeader/ChangeHeader';
 import Todo from '@/features/Todos/components/Todo/Todo';
+import NoTasksImage from '@/features/Todos/components/NoTaskImage/NoTaskImage';
 import { useFirebase } from '@/features/Todos/hooks/useFirebase';
 
 interface Task {
@@ -51,6 +52,12 @@ const Todos = () => {
 
   const displayedTasks = tasks.filter((task) => task.completed === (currentTab === 'completed'));
 
+  // タスクが空の時の条件分岐
+  const noTasksInProgress = tasks.filter((task) => !task.completed).length === 0;
+  const noTasksCompleted = tasks.filter((task) => task.completed).length === 0;
+  // タブが完了時はcompleted、進行中はinProgress
+  console.log(currentTab);
+
   // タスク削除
   const handleDeleteTask = async (taskId: string) => {
     await deleteTask(taskId, listId);
@@ -93,6 +100,21 @@ const Todos = () => {
         currentTab={currentTab}
         tasks={tasks}
       />
+
+      {currentTab === 'inProgress' && noTasksInProgress && (
+        <NoTasksImage
+          text='完了したタスクはありません'
+          imagePath='/images/no-task.png'
+        />
+      )}
+
+      {currentTab === 'completed' && noTasksCompleted && (
+        <NoTasksImage
+          text='完了したタスクはありません'
+          imagePath='/images/no-completed.png'
+        />
+      )}
+
       {displayedTasks.map((task) => (
         <Todo
           key={task.id}
@@ -112,7 +134,7 @@ const Todos = () => {
         className={styles.iconContainer}
         onClick={() => setIsModalOpen(true)}
       >
-      <AddIcon />
+        <AddIcon />
       </div>
       <TaskAddModal
         isOpen={isModalOpen}
