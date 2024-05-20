@@ -10,6 +10,7 @@ import {
 
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../../firebase/config';
+import { AI_TYPE, AI_CHARACTER, COLOR } from '../../../utils/index';
 
 /** firebaseの処理結果 */
 export type FirebaseResult = {
@@ -90,6 +91,9 @@ export const signUpWithEmail = async (args: {
         uid: userCredential.user.uid,
         email: userCredential.user.email,
         username: args.username,
+        ai_type: AI_TYPE,
+        ai_character: AI_CHARACTER,
+        color: COLOR,
       });
 
       result = { isSuccess: true, message: '新規登録に成功しました' };
