@@ -5,3 +5,13 @@ export interface formInputs {
   confirm: string;
   username: string;
 }
+
+declare module 'openai' {
+  export interface CreateChatCompletionResponse {
+    choices: {
+      message?: {
+        content?: string | null;
+      };
+    }[];
+  }
+}

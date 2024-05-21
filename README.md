@@ -63,11 +63,15 @@ Todo リストのタスクを完了すると、自分好みの AI が褒めて�
 
 - **DB**
 
-  - Json server
+  - Firestore
 
 - **認証**
 
   - Firebase Authentication
+
+- **ストレージ**
+
+  - Cloud Storage for Firebase
 
 - **ツール**
 
@@ -82,6 +86,10 @@ Todo リストのタスクを完了すると、自分好みの AI が褒めて�
 - **エディタ**
 
   - VisualStudio Code
+
+- **ホスティング**
+
+  - Vercel
 
 ## ファイル構成
 
@@ -137,7 +145,7 @@ src/
 |
 |-- lib/ # apiデータの処理
 |
-|-- utils/ # ユーティリティ関数
+|-- utils/ # ユーティリティ変数、関数
 |
 |-- public/ # ローカルで使用する画像
 |   |-- images
