@@ -10,6 +10,7 @@ import ChangeHeader from '@/features/Todos/components/ChangeHeader/ChangeHeader'
 import Todo from '@/features/Todos/components/Todo/Todo';
 import NoTasksImage from '@/features/Todos/components/NoTaskImage/NoTaskImage';
 import { useFirebase } from '@/features/Todos/hooks/useFirebase';
+import CompletedModal from '@/app/components/elements/modal/CompletedModal';
 
 interface Task {
   id: string;
@@ -27,6 +28,7 @@ const Todos = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editedName, setEditedName] = useState('');
+  const [completedTaskName, setCompletedTaskName] = useState<string>('');
 
   useEffect(() => {
     if (!listId) {
@@ -52,19 +54,14 @@ const Todos = () => {
 
   const displayedTasks = tasks.filter((task) => task.completed === (currentTab === 'completed'));
 
-  // タスクが空の時の条件分岐
   const noTasksInProgress = tasks.filter((task) => !task.completed).length === 0;
   const noTasksCompleted = tasks.filter((task) => task.completed).length === 0;
-  // タブが完了時はcompleted、進行中はinProgress
-  console.log(currentTab);
 
-  // タスク削除
   const handleDeleteTask = async (taskId: string) => {
     await deleteTask(taskId, listId);
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
-  // タスク編集
   const handleEditTask = async (taskId: string, newName: string) => {
     if (newName !== '') {
       await updateTask(taskId, listId, { name: newName });
@@ -76,13 +73,19 @@ const Todos = () => {
     }
   };
 
-  // タスク完了
   const handleToggleCompleted = async (taskId: string, completed: boolean) => {
     await toggleTaskCompleted(taskId, listId, completed);
     const updatedTasks = tasks.map((task) =>
       task.id === taskId ? { ...task, completed: completed } : task,
     );
     setTasks(updatedTasks);
+
+    if (completed) {
+      const completedTask = tasks.find((task) => task.id === taskId);
+      if (completedTask) {
+        setCompletedTaskName(completedTask.name);
+      }
+    }
   };
 
   if (error) {
@@ -95,6 +98,12 @@ const Todos = () => {
 
   return (
     <div>
+      {completedTaskName && (
+        <CompletedModal
+          taskName={completedTaskName}
+          onClose={() => setCompletedTaskName('')}
+        />
+      )}
       <ChangeHeader
         onTabChange={setCurrentTab}
         currentTab={currentTab}

@@ -37,7 +37,6 @@ const Todo: React.FC<TodoProps> = ({
     }
   }, [isEditing]);
 
-  // スタイルクラスを選択
   const taskNameClass = completed ? `${styles.todo__name} ${styles.completed}` : styles.todo__name;
 
   return (
