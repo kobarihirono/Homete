@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import AddIcon from '../components/elements/addIcon/AddIcon';
 import ListAddModal from '../components/elements/modal/ListAddModal';
 import styles from './Lists.module.scss';
-import TodoList from '@/features/Lists/components/TodoList/TodoList';
+import TodoList, { Task } from '@/features/Lists/components/TodoList/TodoList';
 import { useUserTaskLists } from '@/features/Lists/hooks/useUserTaskLists';
 import { useAuth } from '@/lib/firebase/hooks/useAuth';
 
@@ -20,6 +20,14 @@ const Lists = () => {
 
   const taskLists = useUserTaskLists(!loading && currentUser ? currentUser.uid : null);
 
+  const convertToTaskArray = (tasks: string[]): Task[] => {
+    return tasks.map((task, index) => ({
+      id: index.toString(),
+      title: task,
+      completed: false,
+    }));
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -29,7 +37,7 @@ const Lists = () => {
       <TodoList
         key={taskLists[0].id}
         listName={taskLists[0].name}
-        tasks={taskLists[0].tasks || []}
+        tasks={convertToTaskArray(taskLists[0].tasks || [])}
       />
     ) : (
       <div className={styles.noList}>
