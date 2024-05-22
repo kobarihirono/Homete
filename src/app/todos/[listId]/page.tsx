@@ -112,7 +112,7 @@ const Todos = () => {
 
       {currentTab === 'inProgress' && noTasksInProgress && (
         <NoTasksImage
-          text='完了したタスクはありません'
+          text='進行中のタスクはありません'
           imagePath='/images/no-task.png'
         />
       )}

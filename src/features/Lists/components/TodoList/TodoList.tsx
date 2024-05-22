@@ -10,9 +10,15 @@ import { useFirebase } from '@/features/Lists/hooks/useFirebase';
 import { useUserTaskLists } from '@/features/Lists/hooks/useUserTaskLists';
 import { useAuth } from '@/lib/firebase/hooks/useAuth';
 
-interface TodoListProps {
+export interface Task {
+  id: string;
+  title: string;
+  completed: boolean;
+}
+
+export interface TodoListProps {
   listName: string;
-  tasks: string[];
+  tasks: Task[];
 }
 
 const TodoList: React.FC<TodoListProps> = ({ listName, tasks }) => {
@@ -56,10 +62,7 @@ const TodoList: React.FC<TodoListProps> = ({ listName, tasks }) => {
   return (
     <div className={styles.todoList__wrap}>
       {lists?.map((list, index) => (
-        <div
-          key={list.id}
-          className={styles.todoList}
-        >
+        <div key={list.id} className={styles.todoList}>
           <div className={styles.todoList__Item}>
             {editIndex === index ? (
               <input
@@ -86,6 +89,13 @@ const TodoList: React.FC<TodoListProps> = ({ listName, tasks }) => {
               />
             </div>
           </div>
+          <ul>
+            {tasks.map((task) => (
+              <li key={task.id} className={styles.task}>
+                <span>{task.title}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
