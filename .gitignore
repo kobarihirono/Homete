@@ -1,6 +1,9 @@
 node_modules
+functions
 .next
 .vscode
+.github
+public/index.html
 
 # misc
 .DS_Store
@@ -30,7 +33,16 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 *storybook.log
+tsconfig.json
 
 # storybook
 .storybook
 .stories
+
+# firebase
+database.rules.json
+firestore.indexes.json
+firestore.rules
+
+# tailwind
+tailwind.config.js
