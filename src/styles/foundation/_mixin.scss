@@ -1,11 +1,9 @@
 // ユーザーの色に応じた背景色の設定
 @mixin user-bg-color($color) {
-    @if map-has-key($color-map, $color) {
-        $main-bg: map-get($color-map, $color);
-        background-color: $main-bg;
-    }
-
-    @else {
-        background-color: $main-bg;
-    }
+  @if map-has-key($color-map, $color) {
+    $main-bg: map-get($color-map, $color);
+    background-color: $main-bg;
+  } @else {
+    background-color: $main-bg;
+  }
 }

@@ -10,6 +10,8 @@
     font-size: 28px;
     font-weight: bold;
     color: $white;
+    flex-grow: 1;
+    text-align: center;
   }
 
   .header__icon {
@@ -17,5 +19,9 @@
     height: 35px;
     cursor: pointer;
     color: $white;
+  }
+
+  .header__icon_hidden {
+    visibility: hidden;
   }
 }

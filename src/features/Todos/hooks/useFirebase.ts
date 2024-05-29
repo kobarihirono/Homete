@@ -10,7 +10,6 @@ import {
   getDocs,
   query,
 } from 'firebase/firestore';
-import { useCallback } from 'react';
 import { db } from '@/lib/firebase/config';
 
 export const useFirebase = () => {

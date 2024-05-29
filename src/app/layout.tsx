@@ -23,10 +23,16 @@ export default function RootLayout({
       lang='ja'
     >
       <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charSet='UTF-8' />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0'
+        />
         <title>{metadata.title as React.ReactNode}</title>
-        <meta name='description' content={metadata.description || undefined} />
+        <meta
+          name='description'
+          content={metadata.description || undefined}
+        />
       </head>
       <body className={styles.bodyWithFixedFooter}>
         <Header />
