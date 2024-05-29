@@ -21,14 +21,20 @@ const Dashboard = () => {
         <p className={styles.top__text_item}>日々のモチベーションアップに使ってみませんか？</p>
       </div>
       <div className={styles.top__button}>
-        <Link href="/auth/login" passHref>
+        <Link
+          href='/auth/login'
+          passHref
+        >
           <Button
             label='ログイン'
             type='button'
             className='secondary'
           />
         </Link>
-        <Link href="/auth/register" passHref>
+        <Link
+          href='/auth/register'
+          passHref
+        >
           <Button
             label='新規登録'
             type='button'

@@ -10,31 +10,30 @@
   height: 100vh;
   margin: 0 auto;
 
-    .top__text {
-        text-align: center;
+  .top__text {
+    text-align: center;
 
-        .top__text_item {
-            font-size: 1em;
-            margin-bottom: 10px;
-            color: $main-font;
-            font-weight: bold;
-        }
+    .top__text_item {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: $main-font;
+      font-weight: bold;
     }
+  }
 
-    .top__img_wrap {
-        margin-bottom: 60px;
-    }
+  .top__img_wrap {
+    margin-bottom: 60px;
+  }
 
-    .top__img {
-        width: 100%;
-        height: auto;
-    }
+  .top__img {
+    width: 100%;
+    height: auto;
+  }
 
-    .top__button {
-        display: flex;
-        justify-content: center;
-        margin-top: 48px;
-        gap: 16px;
-    }
+  .top__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    gap: 16px;
+  }
 }
-
