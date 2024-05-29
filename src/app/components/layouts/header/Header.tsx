@@ -28,13 +28,15 @@ const Header = () => {
           />
         </div>
         <h1 className={styles.header__title}>Homete!</h1>
-        {currentUser ? (
-          <Link href={`/my-page/${currentUser.uid}`}>
-            <FaRegUserCircle className={styles.header__icon} />
-          </Link>
-        ) : (
-          <FaRegUserCircle className={styles.header__icon} />
-        )}
+        <div>
+          {currentUser ? (
+            <Link href={`/my-page/${currentUser.uid}`}>
+              <FaRegUserCircle className={styles.header__icon} />
+            </Link>
+          ) : (
+            <FaRegUserCircle className={`${styles.header__icon} ${styles.header__icon_hidden}`} />
+          )}
+        </div>
       </header>
     </>
   );
