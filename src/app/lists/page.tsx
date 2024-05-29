@@ -33,7 +33,7 @@ const Lists = () => {
     return (
       <div>
         <Puff
-          color='$main-bg'
+          color='#ff9130'
           height={100}
           width={100}
           visible={true}

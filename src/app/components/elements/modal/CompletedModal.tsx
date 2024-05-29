@@ -10,6 +10,7 @@ import { CreateChatCompletionResponse } from 'openai';
 import { useAuth } from '@/lib/firebase/hooks/useAuth';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase/config';
+import { Puff } from 'react-loader-spinner';
 
 interface CompletedModalProps {
   taskName: string;
@@ -53,7 +54,11 @@ const CompletedModal: React.FC<CompletedModalProps> = ({ taskName, onClose }) =>
         dangerouslyAllowBrowser: true,
       });
 
-      const messageContent = `今からあなたは${aiCharacter}な${aiType}になりきって50文字以内で私を褒めてください。${taskName} のタスクを完了しました。`;
+      const messageContent = `
+      あなたは${aiCharacter}な${aiType}です。
+      ユーザーが「${taskName}」のタスクを完了しました。
+      ${aiCharacter}の性格になりきって、50文字以内でユーザーを褒めてください。
+      `;
 
       const response: CreateChatCompletionResponse = await openai.chat.completions.create({
         messages: [{ role: 'user', content: messageContent }],
@@ -77,7 +82,20 @@ const CompletedModal: React.FC<CompletedModalProps> = ({ taskName, onClose }) =>
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <p>{isLoading ? 'Loading...' : aiResponse}</p>
+        <p>
+          {isLoading ? (
+            <div>
+              <Puff
+                color='#ff9130'
+                height={75}
+                width={75}
+                visible={true}
+              />
+            </div>
+          ) : (
+            aiResponse
+          )}
+        </p>
         <div className={styles.modal__buttons}>
           <Button
             label='閉じる'
