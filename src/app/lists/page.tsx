@@ -10,6 +10,7 @@ import styles from './Lists.module.scss';
 import TodoList, { Task } from '@/features/Lists/components/TodoList/TodoList';
 import { useUserTaskLists } from '@/features/Lists/hooks/useUserTaskLists';
 import { useAuth } from '@/lib/firebase/hooks/useAuth';
+import { Puff } from 'react-loader-spinner';
 
 const Lists = () => {
   const { currentUser, loading } = useAuth();
@@ -29,7 +30,16 @@ const Lists = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Puff
+          color='$main-bg'
+          height={100}
+          width={100}
+          visible={true}
+        />
+      </div>
+    );
   }
 
   const listContent =

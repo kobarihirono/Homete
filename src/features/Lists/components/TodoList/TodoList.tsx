@@ -62,7 +62,10 @@ const TodoList: React.FC<TodoListProps> = ({ listName, tasks }) => {
   return (
     <div className={styles.todoList__wrap}>
       {lists?.map((list, index) => (
-        <div key={list.id} className={styles.todoList}>
+        <div
+          key={list.id}
+          className={styles.todoList}
+        >
           <div className={styles.todoList__Item}>
             {editIndex === index ? (
               <input
@@ -91,7 +94,10 @@ const TodoList: React.FC<TodoListProps> = ({ listName, tasks }) => {
           </div>
           <ul>
             {tasks.map((task) => (
-              <li key={task.id} className={styles.task}>
+              <li
+                key={task.id}
+                className={styles.task}
+              >
                 <span>{task.title}</span>
               </li>
             ))}

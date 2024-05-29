@@ -11,6 +11,7 @@ import Todo from '@/features/Todos/components/Todo/Todo';
 import NoTasksImage from '@/features/Todos/components/NoTaskImage/NoTaskImage';
 import { useFirebase } from '@/features/Todos/hooks/useFirebase';
 import CompletedModal from '@/app/components/elements/modal/CompletedModal';
+import { Puff } from 'react-loader-spinner';
 
 interface Task {
   id: string;
@@ -93,7 +94,16 @@ const Todos = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Puff
+          color='$main-bg'
+          height={100}
+          width={100}
+          visible={true}
+        />
+      </div>
+    );
   }
 
   return (
