@@ -11,6 +11,7 @@ import styles from './MyPage.module.scss';
 import { logout } from '@/lib/firebase/apis/auth';
 import { db } from '@/lib/firebase/config';
 import { useAuth } from '@/lib/firebase/hooks/useAuth';
+import { Puff } from 'react-loader-spinner';
 
 interface UserData {
   username: string;
@@ -197,7 +198,14 @@ const UserPage = () => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <div className={styles.loading}>
+          <Puff
+            color='#ff9130'
+            height={100}
+            width={100}
+            visible={true}
+          />
+        </div>
       )}
     </div>
   );

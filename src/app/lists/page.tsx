@@ -31,7 +31,7 @@ const Lists = () => {
 
   if (loading) {
     return (
-      <div>
+      <div className={styles.loading}>
         <Puff
           color='#ff9130'
           height={100}
